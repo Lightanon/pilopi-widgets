@@ -16,9 +16,10 @@
   grist.ready();
 
 grist.onRecord(function(record) {
-  // Affiche toutes les clés du record
   document.getElementById('projet').textContent = 
-    Object.keys(record).join(' | ');
+    record['Libellé abrégé'] || '(sans nom)';
+  document.getElementById('statut').textContent = 
+    record['Statut projet'] || '';
 });
   </script>
 </body>
