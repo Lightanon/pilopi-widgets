@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #projet { font-size: 1.4em; font-weight: bold; margin-bottom: 8px; }
+    #statut { display: inline-block; padding: 4px 12px; border-radius: 12px; background: #e0e0e0; }
+  </style>
+</head>
+<body>
+  <div id="projet">En attente de sélection...</div>
+  <div id="statut"></div>
+
+  <script>
+    grist.ready();
+
+    grist.onRecord(function(record) {
+      document.getElementById('projet').textContent = 
+        record.Libellé_abrégé || record['Libellé_abrégé'] || '(sans nom)';
+      document.getElementById('statut').textContent = 
+        record.Statut_projet || record['Statut_projet'] || '';
+    });
+  </script>
+</body>
+</html>
