@@ -13,14 +13,12 @@
   <div id="statut"></div>
 
   <script>
-    grist.ready();
+   grist.ready();
 
-    grist.onRecord(function(record) {
-      document.getElementById('projet').textContent = 
-        record.Libellé_abrégé || record['Libellé_abrégé'] || '(sans nom)';
-      document.getElementById('statut').textContent = 
-        record.Statut_projet || record['Statut_projet'] || '';
-    });
+grist.onRecord(function(record) {
+  // On affiche tout le record brut pour voir les vrais noms de champs
+  document.getElementById('projet').textContent = JSON.stringify(record);
+});
   </script>
 </body>
 </html>
