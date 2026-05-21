@@ -17,9 +17,9 @@
 
 grist.onRecord(function(record) {
   document.getElementById('projet').textContent = 
-    record['Libellé abrégé'] || '(sans nom)';
+    record.Libelle_abrege || '(sans nom)';
   document.getElementById('statut').textContent = 
-    record['Statut projet'] || '';
+    record.Statut_projet || '';
 });
   </script>
 </body>
