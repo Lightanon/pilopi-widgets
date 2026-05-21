@@ -13,11 +13,12 @@
   <div id="statut"></div>
 
   <script>
-   grist.ready();
+  grist.ready();
 
 grist.onRecord(function(record) {
-  // On affiche tout le record brut pour voir les vrais noms de champs
-  document.getElementById('projet').textContent = JSON.stringify(record);
+  // Affiche toutes les clés du record
+  document.getElementById('projet').textContent = 
+    Object.keys(record).join(' | ');
 });
   </script>
 </body>
